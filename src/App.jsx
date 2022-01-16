@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { appWindow, UserAttentionType } from '@tauri-apps/api/window'
-import { fs, shell, path } from '@tauri-apps/api'
+import { fs, shell, path, notification } from '@tauri-apps/api'
 import './App.css'
 
 function minimize() {
@@ -9,6 +9,18 @@ function minimize() {
 
 async function openExternalLink() {
   await shell.open('https://github.com');
+}
+
+
+async function sendNotification() {
+  return;
+  // currently this crashes the application, to be retried after the new release
+  // of tauri tracked under https://github.com/tauri-apps/tauri/issues/917
+  let permission = await notification.requestPermission();
+
+  if (permission == 'granted') {
+    notification.sendNotification("Hello there");
+  }
 }
 
 function App() {
@@ -46,6 +58,9 @@ function App() {
       </div>
 
       <div>{homeDirectory}</div>
+      <div>
+        <button onClick={sendNotification}>Send notification</button>
+      </div>
     </div>
   )
 }
