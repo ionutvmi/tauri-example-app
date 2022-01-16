@@ -1,0 +1,33 @@
+.titlebar {
+  height: 40px;
+  background: #329ea3;
+  user-select: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+}
+.titlebar-text {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    pointer-events: none;
+}
+.titlebar-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+.titlebar-button:hover {
+  background: #5bbec3;
+}
+
+.titlebar-button--close:hover {
+    background: #ff0000;
+}

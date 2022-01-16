@@ -3,6 +3,8 @@ import { appWindow, UserAttentionType } from '@tauri-apps/api/window'
 import { fs, shell, path, notification } from '@tauri-apps/api'
 import './App.css'
 
+import TitleBar from './TitleBar'
+
 function minimize() {
   appWindow.minimize();
 }
@@ -38,6 +40,8 @@ function App() {
 
   return (
     <div className="App">
+      <TitleBar />
+
       <button onClick={minimize}>
         Minimize window
       </button>
